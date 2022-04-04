@@ -29,8 +29,6 @@
 
                 <div class="container mx-auto px-4 text-red-600">
 
-                    @include('partials.navbar')
-
                     @yield('content')
 
                 </div>
