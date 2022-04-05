@@ -13,6 +13,11 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
 
+                    <!--index des jobs-->
+                    <x-jet-nav-link href="{{ route('jobs.index') }}" :active="request()->routeIs('jobs.index')">
+                        {{ __('Nos missions') }}
+                    </x-jet-nav-link>
+
                     @auth()
                     <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                         {{ __('Mon compte') }}
@@ -142,9 +147,18 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+
+            <!--index des jobs - mobile -->
+            <x-jet-responsive-nav-link href="{{ route('jobs.index') }}" :active="request()->routeIs('jobs.index')">
+                {{ __('Nos missions') }}
             </x-jet-responsive-nav-link>
+
+            @auth()
+                <x-jet-responsive-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
+                    {{ __('Mon compte') }}
+                </x-jet-responsive-nav-link>
+            @endauth
+
         </div>
 
         <!-- Responsive Settings Options -->

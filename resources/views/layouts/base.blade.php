@@ -25,9 +25,9 @@
     @livewire('navigation-menu')
 
     <!-- Page Content -->
-    <main>
+    <main class="my-20">
 
-        <div class="container mx-auto px-4 text-red-600">
+        <div class="container mx-auto px-4">
             @yield('content')
 
         </div>
