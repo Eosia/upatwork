@@ -22,13 +22,14 @@
 
                     @auth()
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Mon compte') }}
+                        {{ __('Dashboard') }}
                     </x-jet-nav-link>
                     @endauth
 
                 </div>
 
             </div>
+
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <!-- Teams Dropdown -->
@@ -82,6 +83,7 @@
                 @endif
 
                 <!-- Settings Dropdown -->
+                @auth
                 <div class="ml-3 relative">
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">
@@ -131,6 +133,17 @@
                         </x-slot>
                     </x-jet-dropdown>
                 </div>
+
+                @else
+                    {{-- routes login et register si pas connecté --}}
+                    <x-jet-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')" class="mr-5">
+                        {{ __('Connexion') }}
+                    </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('register') }}" :active="request()->routeIs('register')">
+                        {{ __('Inscription') }}
+                    </x-jet-nav-link>
+                @endauth
             </div>
 
             <!-- Hamburger -->
@@ -156,14 +169,26 @@
 
             @auth()
                 <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                    {{ __('Mon compte') }}
+                    {{ __('Dashboard') }}
                 </x-jet-responsive-nav-link>
+
+            @else
+                {{-- routes login et register si pas connecté --}}
+                <x-jet-responsive-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
+                    {{ __('Connexion') }}
+                </x-jet-responsive-nav-link>
+
+                <x-jet-responsive-nav-link href="{{ route('register') }}" :active="request()->routeIs('register')">
+                    {{ __('Inscription') }}
+                </x-jet-responsive-nav-link>
+
             @endauth
 
 
         </div>
 
         <!-- Responsive Settings Options -->
+        @auth()
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="flex items-center px-4">
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
@@ -232,5 +257,6 @@
                 @endif
             </div>
         </div>
+        @endauth
     </div>
 </nav>

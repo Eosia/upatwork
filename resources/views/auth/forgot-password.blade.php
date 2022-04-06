@@ -30,5 +30,17 @@
                 </x-jet-button>
             </div>
         </form>
+
+
+        <div class="mt-5 w-100">
+            <x-jet-responsive-nav-link href="{{ route('register') }}" class="mt-5 bg-blue-100 rounded hover:shadow-md">
+                {{ __('Inscription') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('login') }}" class="mt-5 bg-blue-100 rounded hover:shadow-md">
+                {{ __('Connexion') }}
+            </x-jet-responsive-nav-link>
+        </div>
+
+
     </x-jet-authentication-card>
 </x-guest-layout>
