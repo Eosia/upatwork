@@ -21,11 +21,13 @@ Route::get('/', function () {
 });
 
 // route de la liste des jobs
-Route::get('/jobs', [\App\Http\Controllers\JobController::class, 'index'])->name('jobs.index');
+Route::resource('jobs', JobController::class);
 
-Route::get('/home', function () {
-    return view('home');
-})->middleware('auth')->name('home');
+
+//Route::get('/home', function () {
+//   return view('home');
+//})->middleware('auth')->name('home');
+
 
 
 // routes d'authentification
