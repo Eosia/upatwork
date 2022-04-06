@@ -9,6 +9,8 @@ class Job extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['title', 'user_id', 'content', 'role_id'];
+
     public function scopeOnline($query)
     {
         return $query->where('status', 1);
