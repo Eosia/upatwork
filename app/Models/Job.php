@@ -9,7 +9,7 @@ class Job extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'user_id', 'content', 'role_id'];
+    protected $fillable = ['title', 'user_id', 'content', 'time'];
 
     public function scopeOnline($query)
     {

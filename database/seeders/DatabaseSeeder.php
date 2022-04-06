@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 use App\Models\{
     User, Role, Job
@@ -18,8 +20,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+        Role::factory(2)
+            ->state(new Sequence(
+                ['name'=>'freelance'],
+                ['name'=>'client'],
+            ))
+            ->create();
+
+
+
        User::factory(6)
-           ->has(Job::factory()->count(15))->create();
+           ->has(Role::factory()->count(1))
+           /*
+           ->state(new Sequence(
+               ['role_id'=>1],
+               ['role_id'=>2],
+           ))
+           */
+           ->has(Job::factory()->count(3))
+               ->create();
        //Job::factory(20);
+
     }
 }
