@@ -20,7 +20,7 @@ use App\Http\Controllers\{
 Route::get('/', [JobController::class, 'index'])->name('jobs.index');
 
 // route de la liste des jobs
-Route::resource('jobs', JobController::class);
+Route::resource('/', JobController::class)->except('index');
 
 
 //Route::get('/home', function () {
