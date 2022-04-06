@@ -32,15 +32,8 @@ class DatabaseSeeder extends Seeder
 
        User::factory(6)
            ->has(Role::factory()->count(1))
-           /*
-           ->state(new Sequence(
-               ['role_id'=>1],
-               ['role_id'=>2],
-           ))
-           */
            ->has(Job::factory()->count(3))
                ->create();
-       //Job::factory(20);
 
     }
 }
