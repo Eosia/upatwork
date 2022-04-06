@@ -32,7 +32,7 @@ class JobFactory extends Factory
             'user_id' => User::factory(),
             'title' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
-            'time' => $this->faker->numberBetween(2,3),
+            'time' => $this->faker->randomDigit(3),
         ];
     }
 }

@@ -16,9 +16,8 @@ use App\Http\Controllers\{
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [JobController::class, 'index'])->name('jobs.index');
 
 // route de la liste des jobs
 Route::resource('jobs', JobController::class);

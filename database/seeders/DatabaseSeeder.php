@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 use App\Models\{
-    User, Role,Job
+    User, Role, Job
 };
 
 class DatabaseSeeder extends Seeder
