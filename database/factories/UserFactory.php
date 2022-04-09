@@ -4,7 +4,8 @@ namespace Database\Factories;
 
 use App\Models\Team;
 use App\Models\User;
-//use App\Models\Role;
+use App\Models\Role;
+use App\Models\Level;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use Laravel\Jetstream\Features;
@@ -29,7 +30,7 @@ class UserFactory extends Factory
 
         return [
             'name' => $this->faker->name(),
-            //'role_id'=> Role::all()->random()->name,
+            'level_id'=> $this->faker->randomElement([1]),
             'role_id'=> $this->faker->randomElement([1, 2]),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),

@@ -8,7 +8,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
 use App\Models\{
-    User, Role, Job
+    User, Role, Job, Level
 };
 
 class DatabaseSeeder extends Seeder
@@ -28,10 +28,15 @@ class DatabaseSeeder extends Seeder
             ))
             ->create();
 
-
+        Level::factory(1)
+            ->state(new Sequence(
+                ['name'=>'editor'],
+            ))
+            ->create();
 
        User::factory(6)
-           ->has(Role::factory()->count(1))
+           //->has(Role::factory()->count(1))
+           // ->has(Level::factory()->count(1))
            ->has(Job::factory()->count(3))
                ->create();
 

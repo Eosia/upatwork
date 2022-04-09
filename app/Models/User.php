@@ -28,6 +28,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role_id',
+        'level_id',
     ];
 
     /**
@@ -63,6 +64,11 @@ class User extends Authenticatable
     public function role()
     {
         return $this->belongsTo(Role::class);
+    }
+
+    public function level()
+    {
+        return $this->belongsTo(Level::class);
     }
 
     public function jobs()
