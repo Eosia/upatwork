@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     HomeController,
     JobController,
+    PanelController,
 };
 
 /*
@@ -18,13 +19,17 @@ use App\Http\Controllers\{
 */
 
 
-Route::get('/', [HomeController::class, 'index'])->name('home.index');
+//Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/', [JobController::class, 'index'])->name('jobs.index');
+
 
 // route de la liste des jobs
 Route::resource('/', JobController::class)->except('index');
 
 // route d'une annonce
 Route::get('/jobs/{id}', [JobController::class, 'show'])->name('jobs.show');
+
+Route::get('/panel', [PanelController::class, 'index'])->middleware('auth')->name('panel.index');
 
 /*
 Route::group(['middleware' => ['auth']], function () {
@@ -42,9 +47,8 @@ Route::group(['middleware' => ['auth']], function () {
 //   return view('home');
 //})->middleware('auth')->name('home');
 
-
-
 // routes d'authentification
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

@@ -17,7 +17,7 @@ class JobController extends Controller
         //
         $jobs = Job::online()->latest()->get();
 
-        return view('jobs.index', [
+        return view('home.index', [
             'jobs' => $jobs,
         ]);
 

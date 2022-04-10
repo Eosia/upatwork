@@ -5,7 +5,7 @@
             <div class="flex align-middle">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('home.index') }}">
+                    <a href="{{ route('jobs.index') }}">
                         <x-jet-application-mark class="block h-9 w-auto" />
                     </a>
                 </div>
@@ -16,13 +16,13 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
 
                     <!--index des jobs-->
-                    <x-jet-nav-link href="{{ route('home.index') }}" :active="request()->routeIs('home.index')">
+                    <x-jet-nav-link href="{{ route('jobs.index') }}" :active="request()->routeIs('jobs.index')">
                         {{ __('Jobs') }}
                     </x-jet-nav-link>
 
                     @auth()
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                    <x-jet-nav-link href="{{ route('panel.index') }}" :active="request()->routeIs('panel.index')">
+                        {{ __('Panel') }}
                     </x-jet-nav-link>
                     @endauth
 
@@ -163,13 +163,13 @@
         <div class="pt-2 pb-3 space-y-1">
 
             <!--index des jobs - mobile -->
-            <x-jet-responsive-nav-link href="{{ route('home.index') }}" :active="request()->routeIs('home.index')">
+            <x-jet-responsive-nav-link href="{{ route('jobs.index') }}" :active="request()->routeIs('jobs.index')">
                 {{ __('Jobs') }}
             </x-jet-responsive-nav-link>
 
             @auth()
-                <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                    {{ __('Dashboard') }}
+                <x-jet-responsive-nav-link href="{{ route('panel.index') }}" :active="request()->routeIs('panel.index')">
+                    {{ __('Panel') }}
                 </x-jet-responsive-nav-link>
 
             @else

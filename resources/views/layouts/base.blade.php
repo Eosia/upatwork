@@ -19,12 +19,40 @@
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
+
+    <!--tinymce-->
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#candidature',
+            mobile: {
+                menubar: true
+            }
+        });
+    </script>
+    <!--tinymce/-->
+
+
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
+
 </head>
 <body class="font-sans antialiased">
 <x-jet-banner />
 
 <div class="min-h-screen bg-gray-100">
     @livewire('navigation-menu')
+
+    <!--notifications-->
+    <livewire:flash />
 
     <!-- Page Content -->
     <main class="my-20">
@@ -48,6 +76,7 @@
 
 <!--bootstrap js-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 
 
 </body>

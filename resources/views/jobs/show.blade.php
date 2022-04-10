@@ -8,10 +8,6 @@
 
         <div class="px-3 py-5 mb-3 shadow-sm hover:shadow-md rounded border-2 border-gray-300">
 
-            <h2 class="text-xl font-bold text-green-800">
-
-            </h2>
-
             <p class="text-md text-gray-800">
                 {{ $job->description }}
             </p>
@@ -32,5 +28,30 @@
 
         </div>
 
-    <a href="{{ route('home.index') }}" class="btn-lg bg-green-600 text-white px-2 py-1 rounded">Retour à l'accueil</a>
+    <!--formulaire de candidature-->
+    <section class="my-10" x-data="{open: false}">
+        <a href="#" class="bg-green-700 text-white px-3 py-2 rounded" @click="open = !open">
+            Cliquez ici pour postuler
+        </a>
+
+        <form class="mt-10" action="" x-show="open" x-cloak>
+            <textarea id="candidature" class="p-3 font-thin">
+            </textarea>
+
+            <button type="submit" class="block bg-green-700 text-white px-3 py-2 my-5 rounded">
+                Soumettre ma candidature
+            </button>
+        </form>
+
+    </section>
+
+
+    <!-- boutons de retour-->
+    <a href="{{ route('jobs.index') }}" class="btn-lg bg-green-600 text-white px-2 py-1 rounded">Retour à l'accueil</a>
+
+    @if($job->isLiked() === true )
+    <a href="{{ route('panel.index') }}" class="btn-lg bg-blue-600 text-white px-2 py-1 rounded ml-5">Retour aux favoris</a>
+    @endif
+
+
 @endsection

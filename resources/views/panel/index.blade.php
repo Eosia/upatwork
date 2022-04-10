@@ -41,8 +41,6 @@
                                     {{ $like->title }}
                                 </h2>
 
-
-
                             </div>
 
                             <p class="text-md text-gray-800">
@@ -53,7 +51,9 @@
                                 <span class="h-2 w-2 bg-green-300 rounded-full mr-2">
                                 </span>
 
-
+                                <a href="{{ route('jobs.show', [$like->id]) }}" class="hover:text-green-400">
+                                    Consulter la mission
+                                </a>
                             </div>
 
                             <span class="text-sm text-gray-600">
