@@ -32,11 +32,11 @@
             <p for="role-select" class="font-semibold text-gray-700 my-5 mx-auto text-center">Je veux être :</p>
             <div class="flex justify-evenly items-center">
                 <label for="freelance">Freelance
-                    <input type="radio" value="1" id="freelance" name="role_id">
+                    <input type="radio" value="2" id="freelance" name="role_id">
                     <span class="checkmark"></span>
                 </label>
                 <label for="client">Client
-                    <input type="radio" value="2" id="client" name="role_id">
+                    <input type="radio" value="3" id="client" name="role_id">
                     <span class="checkmark"></span>
                 </label>
             </div>

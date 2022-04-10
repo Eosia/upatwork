@@ -49,7 +49,7 @@ class Search extends Component
 
     public function selectIndex()
     {
-        if ($this->jobs) {
+        if ($this->jobs->isNotEmpty()) {
             $this->redirect(route('jobs.show', $this->jobs[$this->selectedIndex]['id']));
         }
     }

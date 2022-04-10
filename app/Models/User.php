@@ -10,6 +10,10 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
+use App\Models\{
+    Role, Job
+};
+
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -74,6 +78,11 @@ class User extends Authenticatable
     public function jobs()
     {
         return $this->hasMany(Job::class);
+    }
+
+    public function likes()
+    {
+        return $this->belongsToMany(Job::class)->withTimestamps()->orderByDesc('job_user.created_at');
     }
 
 }

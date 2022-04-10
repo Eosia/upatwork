@@ -30,7 +30,7 @@ class UserFactory extends Factory
 
         return [
             'name' => $this->faker->name(),
-            'level_id'=> $this->faker->randomElement([1]),
+            'level_id'=> $this->faker->randomElement([3]),
             'role_id'=> $this->faker->randomElement([2,3]),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
