@@ -47,6 +47,18 @@ class Search extends Component
 
     }
 
+    public function selectIndex()
+    {
+        if ($this->jobs) {
+            $this->redirect(route('jobs.show', $this->jobs[$this->selectedIndex]['id']));
+        }
+    }
+
+    public function resetIndex()
+    {
+        $this->reset('selectedIndex');
+    }
+
 
 
     public function render()

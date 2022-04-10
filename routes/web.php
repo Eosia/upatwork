@@ -22,6 +22,20 @@ Route::get('/', [JobController::class, 'index'])->name('jobs.index');
 // route de la liste des jobs
 Route::resource('/', JobController::class)->except('index');
 
+// route d'une annonce
+Route::get('/jobs/{id}', [JobController::class, 'show'])->name('jobs.show');
+
+/*
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/jobs/{id}', [JobController::class, 'show'])->name('jobs.show');
+    Route::get('/home', [ProposalController::class, 'home'])->name('home');
+
+    Route::get('/conversations', [ConversationController::class, 'index'])->name('conversations.index');
+    Route::get('/conversation/{conversation}', [ConversationController::class, 'show'])->name('conversation.show');
+
+    Route::get('/confirmProposal/{proposal}', [ConversationController::class, 'confirm'])->name('confirm.proposal');
+});
+*/
 
 //Route::get('/home', function () {
 //   return view('home');
