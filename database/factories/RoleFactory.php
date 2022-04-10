@@ -29,8 +29,8 @@ class RoleFactory extends Factory
     {
         return [
             //
-            'id'=> $this->faker->randomElement([1, 2]),
-            'name' => $this->faker->randomElement(['freelance', 'client']),
+            //'id'=> $this->faker->randomElement([1, 2, 3]),
+            //'name' => $this->faker->randomElement(['staff', 'freelance', 'client']),
         ];
     }
 }

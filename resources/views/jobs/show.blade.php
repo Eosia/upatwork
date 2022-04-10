@@ -16,8 +16,13 @@
                 {{ $job->description }}
             </p>
 
-            <div class="flex items-center align-baseline">
+            <div class="flex items-center align-baseline my-3">
                 Statut : <span class="h-2 w-2 bg-green-300 rounded-full mx-3"></span>
+
+            </div>
+
+            <div class="flex items-center align-baseline mb-3">
+                <i class="fa-solid fa-user mr-3"></i> {{ $job->user->name }}
 
             </div>
 

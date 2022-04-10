@@ -29,8 +29,8 @@ class LevelFactory extends Factory
     {
         return [
             //
-            'id'=> $this->faker->randomElement([1]),
-            'name' => $this->faker->randomElement(['editor']),
+            //'id'=> $this->faker->randomElement([1,2,3]),
+            //'name' => $this->faker->randomElement(['administrator', 'moderator','editor']),
         ];
     }
 }

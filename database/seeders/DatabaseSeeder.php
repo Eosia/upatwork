@@ -21,15 +21,18 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        Role::factory(2)
+        Role::factory(3)
             ->state(new Sequence(
+                ['name'=>'staff'],
                 ['name'=>'freelance'],
                 ['name'=>'client'],
             ))
             ->create();
 
-        Level::factory(1)
+        Level::factory(3)
             ->state(new Sequence(
+                ['name'=>'administrator'],
+                ['name'=>'moderator'],
                 ['name'=>'editor'],
             ))
             ->create();
