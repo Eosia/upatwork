@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
-  JobController,
+    HomeController,
+    JobController,
 };
 
 /*
@@ -17,7 +18,7 @@ use App\Http\Controllers\{
 */
 
 
-Route::get('/', [JobController::class, 'index'])->name('jobs.index');
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 // route de la liste des jobs
 Route::resource('/', JobController::class)->except('index');
