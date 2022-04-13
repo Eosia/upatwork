@@ -9,6 +9,7 @@
         <div class="px-3 py-5 mb-3 shadow-sm hover:shadow-md rounded border-2 border-gray-300">
 
             <p class="text-md text-gray-800">
+                Contenu: <br>
                 {{ $job->description }}
             </p>
 
@@ -19,7 +20,6 @@
 
             <div class="flex items-center align-baseline mb-3">
                 <i class="fa-solid fa-user mr-3"></i> {{ $job->user->name }}
-
             </div>
 
             <span class="text-sm text-gray-600">
@@ -30,12 +30,13 @@
 
     <!--formulaire de candidature-->
     <section class="my-10" x-data="{open: false}">
-        <a href="#" class="bg-green-700 text-white px-3 py-2 rounded" @click="open = !open">
+        <a href="#" class="bg-green-700 text-white px-3 py-2 rounded text-decoration-none" @click="open = !open">
             Cliquez ici pour postuler
         </a>
 
-        <form class="mt-10" action="" x-show="open" x-cloak>
-            <textarea id="candidature" class="p-3 font-thin">
+        <form class="mt-10" x-show="open" x-cloak method="POST" action="{{ route('proposals.store', $job) }}">
+            @csrf
+            <textarea class="p-3 font-thin w-100 min-h-min" name="content">
             </textarea>
 
             <button type="submit" class="block bg-green-700 text-white px-3 py-2 my-5 rounded">
@@ -47,10 +48,10 @@
 
 
     <!-- boutons de retour-->
-    <a href="{{ route('jobs.index') }}" class="btn-lg bg-green-600 text-white px-2 py-1 rounded">Retour à l'accueil</a>
+    <a href="{{ route('jobs.index') }}" class="btn-lg bg-green-600 text-white px-2 py-1 rounded text-decoration-none">Retour à l'accueil</a>
 
     @if($job->isLiked() === true )
-    <a href="{{ route('panel.index') }}" class="btn-lg bg-blue-600 text-white px-2 py-1 rounded ml-5">Retour aux favoris</a>
+    <a href="{{ route('panel.index') }}" class="btn-lg bg-blue-600 text-white px-2 py-1 rounded ml-5 text-decoration-none">Retour aux favoris</a>
     @endif
 
 

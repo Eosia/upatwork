@@ -2,15 +2,19 @@
 
 @section('content')
 
-    <h1 class="text-3xl text-green-500 mb-3">
+    <h1 class="text-3xl text-green-500 mb-7 mx-auto text-center">
         Nos dernières missions
     </h1>
 
 
-    @foreach($jobs as $job)
+    <div class="container-fluid">
+        <div class="row">
+            @foreach($jobs as $job)
 
-        <livewire:job :job="$job"/>
+                <livewire:job :job="$job"/>
 
-    @endforeach
+            @endforeach
+        </div>
+    </div>
 
 @endsection

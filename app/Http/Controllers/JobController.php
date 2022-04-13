@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Job;
+use App\Models\{
+    Job,
+    Proposal,
+    CoverLetter,
+    User
+};
 
 class JobController extends Controller
 {
@@ -16,9 +21,15 @@ class JobController extends Controller
     {
         //
         $jobs = Job::online()->latest()->get();
+        $users = User::all();
+        $proposals = Proposal::all();
+        $coverLetters = CoverLetter::all();
 
-        return view('home.index', [
+        return view('jobs.index', [
             'jobs' => $jobs,
+            'proposals'=>$proposals,
+            'users'=>$users,
+            'coverLetters'=>$coverLetters,
         ]);
 
     }

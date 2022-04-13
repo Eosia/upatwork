@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
-    HomeController,
     JobController,
     PanelController,
+    ProposalController
 };
 
 /*
@@ -29,7 +29,6 @@ Route::resource('/', JobController::class)->except('index');
 // route d'une annonce
 Route::get('/jobs/{id}', [JobController::class, 'show'])->name('jobs.show');
 
-Route::get('/panel', [PanelController::class, 'index'])->middleware('auth')->name('panel.index');
 
 /*
 Route::group(['middleware' => ['auth']], function () {
@@ -54,7 +53,12 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', function () { return view('dashboard'); })->name('dashboard');
+
+    //route du dashboard utilisateur
+    Route::get('/panel', [PanelController::class, 'index'])->name('panel.index');
+    //Route::get('/panel', [ProposalController::class, 'home'])->name('home');
+
+    Route::post('/submit/{job}', [ProposalController::class, 'store'])->name('proposals.store');
+   //Route::post('/proposals/{jobId}', [ProposalController::class, 'submitStore'])->name('proposals.store');
 });
