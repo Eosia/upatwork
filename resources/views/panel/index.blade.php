@@ -54,7 +54,9 @@
                                 </h2>
                             </div>
                             <p class="text-md text-gray-800">
-                                Lettre de motivation : {{ $proposal->content }}
+                                Lettre de motivation :
+                                <br>
+                                {{ $proposal->coverLetter->content }}
                             </p>
                             <div class="flex items-center align-baseline">
                                     <span class="h-2 w-2 bg-green-300 rounded-full mr-2">
