@@ -39,6 +39,10 @@
             scroll-behavior: smooth;
         }
 
+        html a {
+            text-decoration: none !important;
+        }
+
         [x-cloak] {
             display: none !important;
         }
