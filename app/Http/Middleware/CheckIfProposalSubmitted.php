@@ -20,10 +20,11 @@ class CheckIfProposalSubmitted
         $job = $request->job->id;
 
         if (auth()->user()->proposals->contains('job_id', $job)) {
-            return redirect()->route('home.index');
-        }
 
-        return $next($request);
+            $success = "Vous avez déjà soumis votre candidature pour cette annonce !";
+
+            return redirect()->route('home.index')->withSuccess($success);
+        }
 
         return $next($request);
     }

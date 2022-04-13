@@ -14,21 +14,7 @@ class Job extends Component
 
         if(auth()->check())
         {
-
             auth()->user()->likes()->toggle($this->job->id);
-            //$this->emit('flash-message', 'Favoris ajouté', 'success');
-
-            /*
-            if(auth()->user()->likes()->toggle($this->job->id)) {
-                $this->emit('flash-message', 'Favoris ajouté', 'success');
-                return;
-            }
-            else if(! auth()->user()->likes()->toggle($this->job->id))
-            {
-                $this->emit('flash-message', 'Favoris retiré', 'success');
-                return;
-            }
-            */
 
         }
 

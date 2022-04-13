@@ -38,4 +38,6 @@ class Proposal extends Model
         return $this->hasOne(CoverLetter::class);
     }
 
+
+
 }

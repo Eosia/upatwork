@@ -35,7 +35,9 @@ class ProposalController extends Controller
             'content' => $request->input('content')
         ]);
 
-        return redirect()->route('panel.index');
+        $success = "Votre candidature a bien été envoyée !";
+
+        return redirect()->route('panel.index')->withSuccess($success);
     }
 
 

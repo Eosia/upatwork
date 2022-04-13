@@ -5,6 +5,12 @@
         <h1>Bonjour {{ auth()->user()->name }} !</h1>
     </div>
 
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <section class="container-fluid mt-20">
         <div class="flex justify-content-evenly align-items-start flex-wrap">
             <!--mes favoris-->
@@ -86,10 +92,12 @@
                             <div class="flex justify-between">
                                 <h2 class="text-xl font-bold text-green-800">
                                     {{ $job->title }}
+                                    <br>
+                                    ({{ $job->proposals->count() }} @choice('proposition|propositions', $job->proposals))
                                 </h2>
                             </div>
                             <p class="text-md text-gray-800">
-                                {{ $job->description }} ({{ $job->proposals->count() }} @choice('proposition|propositions', $job->proposals)) :
+                                {{ $job->description }} :
                             </p>
                             <div class="flex items-center align-baseline">
                                     <span class="h-2 w-2 bg-green-300 rounded-full mr-2">
@@ -101,7 +109,24 @@
                             </div>
                             <span class="text-sm text-gray-600">
                                     Durée: {{ $job->time }} jours.
-                                </span>
+                            </span>
+
+                            <ul class="list-none ml-4">
+                                {{--
+                                @foreach($job->proposals as $proposal)
+                                    <li class="mt-2">• "{{ $proposal->coverLetter->content }}" par
+                                        <strong>
+                                            {{ $proposal->user->name }}
+                                        </strong>
+                                    </li>
+                                    @if ($job->proposal->validated)
+                                        <span class="bg-white border border-green-500 text-xs p-1 my-2 inline-block text-green-500 rounded">Déjà validé</span>
+                                    @else
+                                        <a href="{{ route('confirm.proposal', [$proposal->id])}}" class="bg-green-500 text-xs py-2 px-2 mt-2 mb-3 inline-block text-white hover:bg-green-200 hover:text-green-500 duration-200 transition rounded">Valider la proposition</a>
+                                    @endif
+                                @endforeach--}}
+                            </ul>
+
                         </div>
                     @endforeach
                 </div>

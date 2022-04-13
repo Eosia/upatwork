@@ -2,6 +2,12 @@
 
 @section('content')
 
+    @if(session('success'))
+        <div class="alert alert-danger">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <h1 class="text-3xl text-green-500 mb-7 mx-auto text-center">
         Nos dernières missions
     </h1>
