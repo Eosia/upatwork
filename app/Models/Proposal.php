@@ -12,7 +12,7 @@ class Proposal extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['job_id', 'user_id', 'validated', 'coverLetter_id', 'content'];
+    protected $fillable = ['job_id', 'user_id', 'validated'];
 
 
     public static function boot()
@@ -25,7 +25,7 @@ class Proposal extends Model
 
     public function user()
     {
-        return $this->belongTo(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function job()

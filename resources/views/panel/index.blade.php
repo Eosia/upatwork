@@ -112,7 +112,7 @@
                             </span>
 
                             <ul class="list-none ml-4">
-                                {{--
+
                                 @foreach($job->proposals as $proposal)
                                     <li class="mt-2">• "{{ $proposal->coverLetter->content }}" par
                                         <strong>
@@ -124,7 +124,7 @@
                                     @else
                                         <a href="{{ route('confirm.proposal', [$proposal->id])}}" class="bg-green-500 text-xs py-2 px-2 mt-2 mb-3 inline-block text-white hover:bg-green-200 hover:text-green-500 duration-200 transition rounded">Valider la proposition</a>
                                     @endif
-                                @endforeach--}}
+                                @endforeach
                             </ul>
 
                         </div>
