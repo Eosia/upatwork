@@ -44,7 +44,7 @@ Route::middleware([
     Route::get('/panel', [PanelController::class, 'index'])->name('panel.index');
 
     //route d'acceptation d'une candidature
-    Route::get('confirmProposal/{$proposal}', [ProposalController::class, 'confirm'])->name('confirm.proposal');
+    Route::get('confirmProposal/{proposal}', [ProposalController::class, 'confirm'])->name('confirm.proposal');
 });
 
 // routes proposal pour ne pas permettre plus d'une candidature à une annonce

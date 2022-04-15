@@ -40,8 +40,16 @@ class ProposalController extends Controller
         return redirect()->route('panel.index')->withSuccess($success);
     }
 
+    public function confirm(Request $request)
+    {
+        $proposal = Proposal::findOrFail($request->proposal);
+    }
 
+    public function index()
+    {
+        $proposals = auth()->user()->proposals()->get();
 
-
+        return view('panel.index', compact('proposals'));
+    }
 
 }
