@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\{
+    Conversation,
+    Message,
     Job,
     Proposal,
     CoverLetter,
@@ -43,6 +45,31 @@ class ProposalController extends Controller
     public function confirm(Request $request)
     {
         $proposal = Proposal::findOrFail($request->proposal);
+
+        $proposal->fill(['validated'=>1]);
+
+        if($proposal ->isDirty())
+        {
+
+            $proposal->save();
+
+            $conversation = Conversation::create([
+                'from' => auth()->user()->id,
+                'to' => $proposal->user->id,
+                'job_id' =>$proposal->job_id
+            ]);
+
+            Message::create([
+                'user_id' => auth()->user()->id,
+                'conversation_id' => $conversation->id,
+                'content' => 'Bonjour, j\'ai validé votre candidature'
+            ]);
+
+            return redirect()->route('panel.index');
+
+        }
+
+
     }
 
     public function index()

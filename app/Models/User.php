@@ -11,7 +11,7 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
 use App\Models\{
-    Role, Job, Proposal
+    Role, Job, Proposal, Conversation
 };
 
 class User extends Authenticatable
@@ -88,6 +88,19 @@ class User extends Authenticatable
     public function likes()
     {
         return $this->belongsToMany(Job::class)->withTimestamps()->orderByDesc('job_user.created_at');
+    }
+
+    public function conversations()
+    {
+        return Conversation::where(function ($q) {
+            $q->where('to', $this->id)
+                ->orWhere('from', $this->id);
+        });
+    }
+
+    public function getConversationsAttribute()
+    {
+        return $this->conversations()->get();
     }
 
 }
