@@ -5,7 +5,8 @@ use App\Http\Controllers\{
     HomeController,
     JobController,
     PanelController,
-    ProposalController
+    ProposalController,
+    ConversationController
 };
 
 /*
@@ -45,6 +46,12 @@ Route::middleware([
 
     //route d'acceptation d'une candidature
     Route::get('confirmProposal/{proposal}', [ProposalController::class, 'confirm'])->name('confirm.proposal');
+
+    //route qui retourne la liste des conversatins d'un user
+    Route::get('/conversations', [ConversationController::class, 'index'])->name('conversations.index');
+    //route de la vue d'une conversation
+    Route::get('/conversation/{conversation}', [ConversationController::class, 'show'])->name('conversation.show');
+
 });
 
 // routes proposal pour ne pas permettre plus d'une candidature à une annonce
