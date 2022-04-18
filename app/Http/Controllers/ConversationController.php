@@ -25,6 +25,8 @@ class ConversationController extends Controller
 
     public function show(Conversation $conversation)
     {
+        //abort_if($conversation->from !== auth()->user()->id && $conversation->to !== auth()->user()->id , 403 );
+
         return view('conversations.show', [
             'conversation' => $conversation,
         ]);

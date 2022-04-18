@@ -14,13 +14,7 @@ use App\Models\{
 
 class ProposalController extends Controller
 {
-    //
-    /*ben ca
-    public function store(Request $request, Job $job)
-    {
-        return view('proposals.store', compact('job'));
-    }
-    */
+
     public function store(Request $request, Job $job)
     {
         $jobs = Job::all();
@@ -45,6 +39,8 @@ class ProposalController extends Controller
     public function confirm(Request $request)
     {
         $proposal = Proposal::findOrFail($request->proposal);
+
+        abort_if($proposal->job->user->id !== auth()->user()->id, 403 );
 
         $proposal->fill(['validated'=>1]);
 
