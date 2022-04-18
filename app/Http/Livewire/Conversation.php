@@ -22,7 +22,7 @@ class Conversation extends Component
     {
         $this->conversation = $conversation;
         $this->job = $conversation->job;
-        $this->authorize('view', [$this->job, $this->conversation]);
+        return view('conversations.show');
     }
 
     public function sendMessage()

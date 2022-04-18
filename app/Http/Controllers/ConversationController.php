@@ -20,12 +20,12 @@ class ConversationController extends Controller
         return view('conversations.index', [
             'conversations' => $conversations
         ]);
-        //dd($conversations);
+
     }
 
     public function show(Conversation $conversation)
     {
-        //abort_if($conversation->from !== auth()->user()->id && $conversation->to !== auth()->user()->id , 403 );
+        abort_if($conversation->from !== auth()->user()->id && $conversation->to !== auth()->user()->id , 403 );
 
         return view('conversations.show', [
             'conversation' => $conversation,
