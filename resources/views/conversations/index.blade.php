@@ -8,13 +8,31 @@
                     <p class="font-semibold">{{ Illuminate\Support\Str::limit($conversation->messages->last()->content, 50) }}
                     </p>
 
-                    <p class="font-thin text-gray-500">envoyé par 
-                        <strong>{{ auth()->user()->id === $conversation->messages->last()->user->id ? 'vous' 
+                    <p class="font-thin text-gray-500">envoyé par
+                        <strong>{{ auth()->user()->id === $conversation->messages->last()->user->id ? 'vous'
                             : $conversation->messages->last()->user->firstname.' '.$conversation->messages->last()->user->lastname }}
-                        </strong> 
+                        </strong>
 
                         {{ $conversation->messages->last()->created_at->diffForHumans() }}
                     </p>
+
+                    @if($conversation->messages->last()->user->id !== auth()->user()->id)
+                        <div class="flex flex-column justify-content-center align-items-center">
+                            <i class="fa-solid fa-comment-dots fa-3x text-green-600 mb-2"></i>
+                            <span>
+                                Nouveau(x) Message(s) de :
+                                <span class="font-bold">
+                                    {{ $conversation->messages->last()->user->firstname }} {{ $conversation->messages->last()->user->lastname }}
+                                </span>
+                            </span>
+                        </div>
+                    @else
+                        <div class="flex flex-column justify-content-center align-items-center">
+                            <i class="fa-solid fa-comment-slash fa-3x text-red-600 mb-2"></i>
+                            <span>Pas de nouveaux messages</span>
+                        </div>
+                    @endif
+
                 </div>
             </a>
     @endforeach

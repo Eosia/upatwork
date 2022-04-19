@@ -1,6 +1,6 @@
 
 <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-5 col-xxl-5
-    px-3 py-5 mb-3 shadow-sm hover:shadow-md rounded border-2 border-gray-300 w-1/2">
+    px-3 py-5 mb-3 shadow-sm hover:border-green-300 rounded border-2 border-gray-300 w-1/2">
 
     <div class="flex justify-between">
         <h2 class="text-xl font-bold text-green-800">
