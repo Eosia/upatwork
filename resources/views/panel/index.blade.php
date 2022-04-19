@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="mx-auto text-center">
-        <h1>Bonjour {{ auth()->user()->name }} !</h1>
+        <h1>Bonjour {{ auth()->user()->firstname }} {{ auth()->user()->lastname }} !</h1>
     </div>
 
     @if(session('success'))
@@ -116,7 +116,7 @@
                                 @foreach($job->proposals as $proposal)
                                     <li class="mt-2">• "{{ $proposal->coverLetter->content }}" par
                                         <strong>
-                                            {{ $proposal->user->name }}
+                                            {{ $proposal->user->firstname }} {{ $proposal->user->lastname }}
                                         </strong>
                                     </li>
 

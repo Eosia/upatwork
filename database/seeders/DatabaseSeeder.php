@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
         Role::factory(3)
             ->state(new Sequence(
                 ['name'=>'staff'],
-                ['name'=>'freelance'],
-                ['name'=>'client'],
+                ['name'=>'student'],
+                ['name'=>'recruiter'],
             ))
             ->create();
 

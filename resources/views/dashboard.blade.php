@@ -18,7 +18,7 @@
 
 @section('content')
     <div class="mx-auto text-center">
-        <h1>Bonjour {{ auth()->user()->name }} !</h1>
+        <h1>Bonjour {{ auth()->user()->firstname }} {{ auth()->user()->lastname }} !</h1>
     </div>
 
     <section class="container-fluid mt-20">

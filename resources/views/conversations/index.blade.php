@@ -8,7 +8,13 @@
                     <p class="font-semibold">{{ Illuminate\Support\Str::limit($conversation->messages->last()->content, 50) }}
                     </p>
 
-                    <p class="font-thin text-gray-500">envoyé par <strong>{{ auth()->user()->id === $conversation->messages->last()->user->id ? 'vous' : $conversation->messages->last()->user->name }}</strong> {{ $conversation->messages->last()->created_at->diffForHumans() }}</p>
+                    <p class="font-thin text-gray-500">envoyé par 
+                        <strong>{{ auth()->user()->id === $conversation->messages->last()->user->id ? 'vous' 
+                            : $conversation->messages->last()->user->firstname.' '.$conversation->messages->last()->user->lastname }}
+                        </strong> 
+
+                        {{ $conversation->messages->last()->created_at->diffForHumans() }}
+                    </p>
                 </div>
             </a>
     @endforeach

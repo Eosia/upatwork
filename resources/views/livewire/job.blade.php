@@ -34,8 +34,13 @@
         </a>
     </div>
 
-    <span class="text-sm text-gray-600">
+    <div class="flex flex-column justify-start align-center mb-1">
+            <span class="text-sm text-gray-600 my-3">
                 Durée: {{ $job->time }} jours.
-    </span>
+            </span>
+        <div class="flex justify-start align-baseline">
+            <i class="fa-solid fa-user mr-3"></i> {{ $job->user->firstname }} {{ $job->user->lastname }}
+        </div>
+    </div>
 
 </div>

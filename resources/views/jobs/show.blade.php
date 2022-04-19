@@ -19,7 +19,7 @@
             </div>
 
             <div class="flex items-center align-baseline mb-3">
-                <i class="fa-solid fa-user mr-3"></i> {{ $job->user->name }}
+                <i class="fa-solid fa-user mr-3"></i> {{ $job->user->firstname }} {{ $job->user->lastname }}
             </div>
 
             <span class="text-sm text-gray-600">

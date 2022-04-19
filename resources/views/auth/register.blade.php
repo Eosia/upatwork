@@ -10,33 +10,43 @@
             @csrf
 
             <div>
-                <x-jet-label for="name" value="{{ __('Name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-jet-label for="name" value="{{ __('Pseudo') }}" />
+                <x-jet-input id="name" class="block my-2 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            </div>
+
+            <div>
+                <x-jet-label for="firstname" value="{{ __('Prénom') }}" />
+                <x-jet-input id="firstname" class="block my-2 w-full" type="text" name="firstname" :value="old('firstname')" required autofocus autocomplete="firstname" />
+            </div>
+
+            <div>
+                <x-jet-label for="lastname" value="{{ __('Nom') }}" />
+                <x-jet-input id="lastname" class="block my-2 w-full" type="text" name="lastname" :value="old('lastname')" required autofocus autocomplete="lastname" />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                <x-jet-input id="email" class="block mt-2 w-full" type="email" name="email" :value="old('email')" required />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+                <x-jet-input id="password" class="block mt-2 w-full" type="password" name="password" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+                <x-jet-input id="password_confirmation" class="block mt-2 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
-            <p for="role-select" class="font-semibold text-gray-700 my-5 mx-auto text-center">Je veux être :</p>
+            <p for="role-select" class="font-semibold text-gray-700 my-5 mx-auto text-center">Je suis :</p>
             <div class="flex justify-evenly items-center">
-                <label for="freelance">Freelance
-                    <input type="radio" value="2" id="freelance" name="role_id">
+                <label for="student">&Eacutetudiant
+                    <input type="radio" value="2" id="student" name="role_id">
                     <span class="checkmark"></span>
                 </label>
-                <label for="client">Client
-                    <input type="radio" value="3" id="client" name="role_id">
+                <label for="client">Recruteur
+                    <input type="radio" value="3" id="recruiter" name="role_id">
                     <span class="checkmark"></span>
                 </label>
             </div>
@@ -63,11 +73,11 @@
 
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
+                    {{ __('Déjà un enregistré ?') }}
                 </a>
 
                 <x-jet-button class="ml-4">
-                    {{ __('Register') }}
+                    {{ __('Inscription') }}
                 </x-jet-button>
             </div>
         </form>
